@@ -1,5 +1,5 @@
 
-Use ContosoRetailDW
+USE ContosoRetailDW
 
 --1-)a-Continuou a mesma quantidade de produtos.
 --SELECT TOP(100) PERCENT ProductName
@@ -37,7 +37,7 @@ Use ContosoRetailDW
 --3-)d-
 --SELECT TOP(100) 
 --FirstName AS 'Primeiro nome',
---EmailAddress AS 'EndereÁo de cliente',
+--EmailAddress AS 'Endere√ßo de cliente',
 --BirthDate AS 'Data de nascimento'
 --FROM DimCustomer;
 
@@ -46,7 +46,7 @@ Use ContosoRetailDW
 --Manufacturer AS Fornecedor
 --FROM DimProduct;
 
---5-)Sim, possui um produto que n„o foi vendido.
+--5-)Sim, possui um produto que n√£o foi vendido.
 ----SELECT DISTINCT *
 ----FROM DimProduct;
 --SELECT DISTINCT ProductKey
