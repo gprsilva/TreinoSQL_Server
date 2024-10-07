@@ -42,12 +42,11 @@ BirthDate AS 'Data de nascimento'
 FROM DimCustomer;
 
 --4-)
-SELECT 
-Manufacturer AS Fornecedor
+SELECT DISTINCT Manufacturer AS Fornecedor
 FROM DimProduct;
 
 --5-)Sim, possui um produto que não foi vendido.
-SELECT DISTINCT *
+SELECT DISTINCT ProductKey
 FROM DimProduct;
 SELECT DISTINCT ProductKey
 FROM FactSales
