@@ -1,13 +1,13 @@
 USE ContosoRetailDW
 
---Quest„o 1
+--Quest√£o 1
 SELECT TOP(100)
 ProductKey,
 SalesAmount
 FROM FactSales
 ORDER BY SalesAmount DESC;
 
---Quest„o 2
+--Quest√£o 2
 SELECT TOP(10)
 ProductName,
 UnitPrice,
@@ -15,8 +15,9 @@ Weight,
 ColorName
 FROM DimProduct
 ORDER BY UnitPrice DESC, Weight DESC, ColorName ASC;
+--ORDER BY UnitPrice DESC, Weight DESC, AvailableForSaleDate ASC;
 
---Quest„o 3
+--Quest√£o 3
 SELECT
 ProductName AS 'Nome do produto',
 Weight AS Peso
@@ -24,15 +25,15 @@ FROM DimProduct
 WHERE Weight > 100
 ORDER BY Weight DESC;
 
---Quest„o 4
+--Quest√£o 4
 SELECT
 StoreName AS 'Nome da loja',
 OpenDate AS 'Data de abertura',
-EmployeeCount AS 'Contagem de Funcion·rios'
+EmployeeCount AS 'Contagem de Funcion√°rios'
 FROM DimStore
-WHERE CloseDate IS NULL;
+WHERE CloseDate IS NULL AND StoreType='Store';
 
---Quest„o 5
+--Quest√£o 5
 SELECT
 ProductKey,
 ProductName,
@@ -41,14 +42,14 @@ AvailableForSaleDate
 FROM DimProduct
 WHERE BrandName = 'Litware' AND AvailableForSaleDate = '15/03/2009';
 
---Quest„o 6
+--Quest√£o 6
 SELECT
 StoreKey,
 StoreName
 FROM DimStore
-WHERE CloseDate IS NULL;
+WHERE CloseDate IS NOT NULL;
 
---Quest„o 7
+--Quest√£o 7
 --CATEGORIA 1
 SELECT
 StoreKey,
@@ -74,25 +75,25 @@ FROM DimStore
 WHERE EmployeeCount >= 51;
 
 
---Quest„o 8
+--Quest√£o 8
 SELECT
 ProductKey,
 ProductName,
 UnitPrice
 FROM DimProduct
-WHERE ProductName LIKE '%LCD%';
+WHERE ProductDescription LIKE '%LCD%';
 
 
---Quest„o 9
+--Quest√£o 9
 SELECT
 ProductKey,
 ProductName,
 ColorName,
 BrandName
 FROM DimProduct
-WHERE BrandName IN ('Contoso','Litware','Fabrikam') AND ColorName IN('Green','Orange','Black','Silver','Pink');
+WHERE BrandName IN ('Contoso','Litware','Fabrikam') AND ColorName IN ('Green','Orange','Black','Silver','Pink');
 
---Quest„o 10
+--Quest√£o 10
 SELECT
 ProductKey,
 ProductName,
