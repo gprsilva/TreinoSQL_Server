@@ -1,23 +1,21 @@
 USE ContosoRetailDW
 
 
---Questão 1
+--QuestÃ£o 1
 SELECT
-COUNT(SalesQuantity) AS 'Quantidade Vendida'
+SUM(SalesQuantity) AS 'Quantidade Vendida',
+SUM(ReturnQuantity) AS 'Quantidade Devolvida'
 FROM FactSales
+WHERE channelKey = 1;
 
+--QuestÃ£o 2
 SELECT
-COUNT(ReturnQuantity) AS 'Quantidade Devolvida'
-FROM FactSales
-
---Questão 2
-SELECT
-AVG(YearlyIncome) AS 'Média do Salário'
+AVG(YearlyIncome) AS 'MÃ©dia do SalÃ¡rio'
 FROM DimCustomer
 WHERE Occupation='Professional'
 
 --Quantidade 3
---Loja com mais funcionários
+--Loja com mais funcionÃ¡rios
 SELECT TOP(1)
 StoreName,
 EmployeeCount
@@ -25,10 +23,10 @@ FROM DimStore
 ORDER BY EmployeeCount DESC
 
 SELECT
-MAX(EmployeeCount) AS 'Quantidade de Funcionário'
+MAX(EmployeeCount) AS 'Quantidade de FuncionÃ¡rio'
 FROM DimStore
 
---Loja com menos funcionários
+--Loja com menos funcionÃ¡rios
 SELECT TOP(1)
 StoreName,
 EmployeeCount
@@ -37,10 +35,10 @@ WHERE EmployeeCount IS NOT NULL
 ORDER BY EmployeeCount ASC
 
 SELECT
-MIN(EmployeeCount) AS 'Quantidade de Funcionário'
+MIN(EmployeeCount) AS 'Quantidade de FuncionÃ¡rio'
 FROM DimStore
 
---Questão 4
+--QuestÃ£o 4
 --HOMENS
 SELECT
 COUNT(EmployeeKey) AS 'Qtd. Homens'
@@ -69,18 +67,9 @@ FROM DimEmployee
 WHERE Gender = 'F'AND EndDate IS NULL
 ORDER BY HireDate
 
---Questão 5
---a
+--QuestÃ£o 5
 SELECT
-COUNT(DISTINCT ColorName) AS 'Cor do Produto'
-FROM DimProduct
-
---b
-SELECT
-COUNT(DISTINCT BrandName) AS 'Marca do Produto'
-FROM DimProduct
-
---c
-SELECT
+COUNT(DISTINCT ColorName) AS 'Cor do Produto',
+COUNT(DISTINCT BrandName) AS 'Marca do Produto',
 COUNT(DISTINCT ClassName) AS 'Classe do Produto'
 FROM DimProduct
